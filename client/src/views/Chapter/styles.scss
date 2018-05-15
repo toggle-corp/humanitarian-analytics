@@ -1,0 +1,114 @@
+@import '../../stylesheets/base';
+
+$aside-width: 364px;
+
+.chapter {
+    display: flex;
+    flex-direction: column;
+
+    header {
+        @include shadow-small;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 10;
+        height: $height-navbar;
+
+        .header-left {
+            display: flex;
+            align-items: center;
+
+            h2 {
+                margin-left: $spacing-small;
+                font-size: $font-size-large-alt;
+                font-weight: $font-weight-medium;
+            }
+
+            .navButton {
+                margin-left: $spacing-extra-small;
+                font-size: $font-size-large;
+            }
+        }
+    }
+
+    main {
+        display: flex;
+
+        article {
+            padding: $spacing-medium 0;
+            height: calc(100vh - #{$height-navbar} * 2);
+            overflow-y: auto;
+
+            section {
+                padding: 0 $spacing-super-large;
+                padding-top: $spacing-large;
+
+                h3 {
+                    font-size: $font-size-extra-large;
+                    font-weight: $font-weight-normal;
+                }
+
+                p {
+                    text-align: justify;
+                    white-space: pre-wrap;
+                }
+            }
+        }
+
+        aside {
+            padding: $spacing-medium 0;
+            min-width: $aside-width;
+
+            h3 {
+                margin-top: $spacing-large;
+                margin-bottom: $spacing-small;
+                color: $color-accent;
+                font-weight: $font-weight-normal;
+            }
+
+            .key-points {
+                padding: 0 $spacing-medium;
+
+                ul {
+                    margin: 0;
+                    padding: 0 $spacing-large;
+                }
+            }
+
+            .quotes {
+                margin-top: $spacing-super-large;
+                padding: 0 $spacing-medium;
+
+                figure {
+                    margin: $spacing-medium 0;
+
+                    blockquote {
+                        margin: 0;
+                        font-style: italic;
+
+                        &::before {
+                            margin-right: $spacing-extra-small;
+                            font-size: $font-size-extra-large;
+                            content: "\201C";
+                        }
+
+                        &::after {
+                            margin-right: $spacing-extra-small;
+                            font-size: $font-size-extra-large;
+                            content: "\201D";
+                        }
+                    }
+
+                    figcaption {
+                        text-align: right;
+
+                        &::before {
+                            margin-right: $spacing-extra-small;
+                            content: "\2014";
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

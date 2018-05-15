@@ -1,0 +1,38 @@
+@import '../../stylesheets/base';
+
+$nav-drawer-width: 256px;
+
+.nav-drawer {
+    position: relative;
+    transition: min-width $duration-transition-medium ease-in-out;
+    background-color: $color-foreground-alt;
+    min-width: 0;
+
+    ul {
+        display: flex;
+        position: absolute;
+        left: -$nav-drawer-width;
+        flex-direction: column;
+        transition: left $duration-transition-medium ease-in-out;
+        padding: 0;
+        width: $nav-drawer-width;
+
+        li {
+            list-style: none;
+
+            a {
+                display: block;
+                padding: $spacing-extra-small $spacing-medium;
+                font-size: $font-size-large;
+            }
+        }
+    }
+
+    &.expanded {
+        min-width: $nav-drawer-width;
+
+        ul {
+            left: 0px;
+        }
+    }
+}

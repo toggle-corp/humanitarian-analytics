@@ -1,0 +1,10 @@
+@import '../../stylesheets/base';
+
+.chapter-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    .chapter {
+        flex-basis: 22%;
+    }
+}

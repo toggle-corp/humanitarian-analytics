@@ -1,0 +1,15 @@
+@import '../../stylesheets/base';
+
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: $color-primary;
+    padding: 0 $spacing-medium;
+    height: $height-navbar;
+
+    h1 {
+        color: $color-text-on-dark;
+        font-size: $font-size-extra-large;
+        font-weight: $font-weight-normal;
+    }
+}
