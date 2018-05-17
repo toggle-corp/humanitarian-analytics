@@ -4,3 +4,4 @@ djangorestframework-camel-case==0.2.0
 djangorestframework==3.8.2
 drf-dynamic-fields==0.2.0
 pyjwt==1.5.3
+psycopg2

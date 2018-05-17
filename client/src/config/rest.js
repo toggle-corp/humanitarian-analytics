@@ -10,7 +10,7 @@ const reactAppApiHttps = location.protocol === 'https:'
 
 export const wsEndpoint = (() => {
     if (!process.env.REACT_APP_API_END) {
-        return 'http://localhost:8000';
+        return 'http://localhost:8040';
     }
     return `${reactAppApiHttps}://${process.env.REACT_APP_API_END}`;
 })();
