@@ -192,6 +192,7 @@ export default class Chapter extends React.PureComponent {
         return (
             <main>
                 <NavDrawer
+                    defaultItem="overview"
                     items={calcNavItems(chapter)}
                     expanded={navDrawerExpanded}
                 />

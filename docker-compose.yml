@@ -1,0 +1,41 @@
+version: '3.2'
+
+services:
+    db:
+        image: postgres:9.6
+        volumes:
+            - db:/var/lib/postgresql/data
+
+    server:
+        image: devtc/humanitarian-analytics:latest
+        build:
+          context: .
+          cache_from:
+            - devtc/humanitarian-analytics:latest
+        env_file:
+            - .env
+        command: ['/code/scripts/wait-for-it.sh', 'db:5432', '--', '/code/scripts/run_develop.sh', 'server']
+        volumes:
+            - .:/code
+            - ./media:/media
+        ports:
+            - '8040:8000'
+        depends_on:
+            - db
+
+    client:
+        image: devtc/humanitarian-analytics:latest
+        build:
+          context: .
+          cache_from:
+            - devtc/humanitarian-analytics:latest
+        env_file:
+            - .env
+        command: ['/code/scripts/run_develop.sh', 'client']
+        volumes:
+            - .:/code
+        ports:
+            - '3004:3000'
+
+volumes:
+  db:

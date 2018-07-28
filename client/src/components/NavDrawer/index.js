@@ -9,12 +9,14 @@ const propTypes = {
         id: PropTypes.string,
         label: PropTypes.string,
     })),
+    defaultItem: PropTypes.string,
     expanded: PropTypes.bool,
 };
 
 const defaultProps = {
     className: '',
     items: [],
+    defaultItem: undefined,
     expanded: false,
 };
 
@@ -24,13 +26,16 @@ export default class NavDrawer extends React.PureComponent {
     static defaultProps = defaultProps;
 
     componentWillMount() {
-        if (!window.location.hash) {
-            window.location.hash = '#overview';
+        if (!window.location.hash && this.props.defaultItem) {
+            window.location.hash = `#${this.props.defaultItem}`;
         }
     }
 
     getClassName() {
-        const { className, expanded } = this.props;
+        const {
+            className,
+            expanded,
+        } = this.props;
 
         const classNames = [
             className,
