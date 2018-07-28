@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'corsheaders',
+    'djangorestframework_camel_case',
     'drf_dynamic_fields',
     'rest_framework',
 
